@@ -1,0 +1,28 @@
+Options -Indexes
+
+# PHP error display (set to Off for production)
+php_flag display_errors Off
+php_value error_reporting 0
+
+# Protect sensitive files
+<FilesMatch "\.(sql|log|env|gitignore)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Protect config directory
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirect bare domain to index
+    RewriteBase /hirehub/
+
+    # Block direct access to config/core
+    RewriteRule ^config/ - [F,L]
+    RewriteRule ^core/ - [F,L]
+</IfModule>
+
+# Secure file uploads – no PHP execution in uploads
+<IfModule mod_rewrite.c>
+    RewriteRule ^public/uploads/.*\.php$ - [F,L]
+</IfModule>
