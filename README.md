@@ -1,6 +1,6 @@
-# HireHub – Recruitment & Job Portal System
+# Jobix — Recruitment & Job Portal System
 
-A complete, professional SaaS-style job portal built with **PHP 8**, **MySQL**, **Bootstrap 5**, and vanilla JS.
+A role-based recruitment platform built with **PHP 8**, **MySQL**, **Bootstrap 5**, and vanilla JavaScript, covering the workflow from job publishing to candidate applications and administration.
 
 ---
 
