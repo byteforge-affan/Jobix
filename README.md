@@ -1,6 +1,25 @@
 # Jobix — Recruitment & Job Portal System
 
-A role-based recruitment platform built with **PHP 8**, **MySQL**, **Bootstrap 5**, and vanilla JavaScript, covering the workflow from job publishing to candidate applications and administration.
+> A role-based recruitment platform built with **PHP 8**, **MySQL**, **Bootstrap 5**, and vanilla JavaScript.
+
+![PHP](https://img.shields.io/badge/PHP_8-777BB4?style=flat-square&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap_5-7952B3?style=flat-square&logo=bootstrap&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-111827?style=flat-square&logo=javascript&logoColor=F7DF1E)
+
+## Overview
+
+**Jobix** covers the recruitment workflow from job publishing to candidate applications and administration. It provides separate experiences for administrators, companies and candidates, backed by a relational database and server-side PHP logic.
+
+This project demonstrates **role-based workflows, authentication, CRUD operations, application tracking, notifications, analytics and practical web-security controls**.
+
+## Role-Based Experience
+
+| Role | Core workflow |
+| --- | --- |
+| **Admin** | Monitor analytics and manage users, companies, jobs, categories and applications |
+| **Company** | Publish and manage jobs, review applications and maintain a company profile |
+| **Candidate** | Discover jobs, apply with a resume and cover letter, save jobs and track application status |
 
 ---
 
@@ -14,48 +33,6 @@ A role-based recruitment platform built with **PHP 8**, **MySQL**, **Bootstrap 5
 | **Candidate** | Browse & search jobs, Apply with resume + cover letter, Save jobs, Track application status |
 | **Notifications** | Real-time bell notifications for all role events |
 | **Charts** | Chart.js analytics for Admin and Company dashboards |
-
----
-
-## 🚀 Installation (XAMPP)
-
-### Step 1 – Copy Files
-```
-Place the `hirehub` folder in:
-C:\xampp\htdocs\hirehub\
-```
-
-### Step 2 – Import Database
-1. Open **phpMyAdmin** → `http://localhost/phpmyadmin`
-2. Click **New** → create database named `hirehub`
-3. Select `hirehub` → click **Import**
-4. Upload `database.sql` → click **Go**
-
-### Step 3 – Configure (if needed)
-Open `config/config.php` and update:
-```php
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'hirehub');
-define('DB_USER', 'root');
-define('DB_PASS', '');                          // your MySQL password
-define('BASE_URL', 'http://localhost/hirehub'); // match your XAMPP URL
-```
-
-### Step 4 – Run
-Open browser → `http://localhost/hirehub/`
-
----
-
-## 🔑 Demo Login Credentials
-
-| Role | Email | Password |
-|---|---|---|
-| Admin | admin@hirehub.com | password |
-| Company | hr@technova.com | password |
-| Company | jobs@byteforge.io | password |
-| Candidate | ahmed@email.com | password |
-| Candidate | sarah@email.com | password |
-| Candidate | john@email.com | password |
 
 ---
 
@@ -130,4 +107,54 @@ Inspired by **LinkedIn Jobs**, **Indeed**, and **Wellfound** with a clean, moder
 
 ---
 
-Built as a portfolio-ready project. Feel free to extend with email notifications, OAuth login, or a REST API layer.
+## 🚀 Installation (XAMPP)
+
+### Step 1 – Copy Files
+```
+Place the `hirehub` folder in:
+C:\xampp\htdocs\hirehub\
+```
+
+### Step 2 – Import Database
+1. Open **phpMyAdmin** → `http://localhost/phpmyadmin`
+2. Click **New** → create database named `hirehub`
+3. Select `hirehub` → click **Import**
+4. Upload `database.sql` → click **Go**
+
+### Step 3 – Configure (if needed)
+Open `config/config.php` and update:
+```php
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'hirehub');
+define('DB_USER', 'root');
+define('DB_PASS', '');                          // your MySQL password
+define('BASE_URL', 'http://localhost/hirehub'); // match your XAMPP URL
+```
+
+### Step 4 – Run
+Open browser → `http://localhost/hirehub/`
+
+---
+
+## 🔑 Demo Login Credentials
+
+| Role | Email | Password |
+|---|---|---|
+| Admin | admin@hirehub.com | password |
+| Company | hr@technova.com | password |
+| Company | jobs@byteforge.io | password |
+| Candidate | ahmed@email.com | password |
+| Candidate | sarah@email.com | password |
+| Candidate | john@email.com | password |
+
+---
+
+---
+
+## Project Focus
+
+Jobix was built as a portfolio-ready full-stack project to practice how **interface design, application logic, user roles and relational data** work together in one system.
+
+**Built by Muhammad Affan · ByteForge Studio**
+
+[GitHub Profile](https://github.com/byteforge-affan) · [Portfolio](https://byteforge-affan-portfolio.netlify.app/)
