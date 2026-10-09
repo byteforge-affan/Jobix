@@ -11,7 +11,7 @@
 
 **Jobix** covers the recruitment workflow from job publishing to candidate applications and administration. It provides separate experiences for administrators, companies and candidates, backed by a relational database and server-side PHP logic.
 
-This project demonstrates **role-based workflows, authentication, CRUD operations, application tracking, notifications, analytics and practical web-security controls**.
+This project demonstrates **role-based workflows, authentication, CRUD operations, application tracking, notifications, analytics and selected web-security mechanisms**. These mechanisms have not been comprehensively security-tested.
 
 ## Role-Based Experience
 
@@ -35,6 +35,8 @@ This project demonstrates **role-based workflows, authentication, CRUD operation
 | **Charts** | Chart.js analytics for Admin and Company dashboards |
 
 ---
+
+**Naming note:** Jobix is the public project name. The current source retains the legacy `hirehub` folder, MySQL database, and local URL identifiers, as well as `HireHub` in some interface/configuration strings. Follow the paths below for the current version; this README does not imply that the application configuration has been renamed.
 
 ## 📁 Project Structure
 
@@ -61,13 +63,15 @@ hirehub/
 
 ## 🔒 Security Features
 
-- **PDO Prepared Statements** — all SQL uses parameterized queries
-- **CSRF Tokens** — all POST forms include CSRF verification
-- **XSS Protection** — all output passed through `htmlspecialchars()`
-- **File Upload Validation** — type whitelist, size limit, random filenames
-- **PHP execution blocked** in `/public/uploads/` via `.htaccess`
-- **Password Hashing** — `password_hash()` with `PASSWORD_DEFAULT` (bcrypt)
-- **Directory Listing Disabled** — `Options -Indexes`
+- **Database queries** — PDO-based query helpers support parameterized statements; use across every SQL operation has not been audited.
+- **CSRF tokens** — token generation and verification helpers exist; login and registration forms use them. Coverage of every POST route is unverified.
+- **Output escaping** — an `htmlspecialchars()` helper exists; comprehensive use across all output is unverified.
+- **File uploads** — a helper checks allowed filename extensions and size limits and generates randomized filenames; comprehensive file-content validation is not established.
+- **Upload directory protection** — `.htaccess` rules aim to prevent PHP execution in `/public/uploads/`; server enforcement has not been tested.
+- **Password hashing** — registration uses `password_hash(..., PASSWORD_DEFAULT)` and login uses `password_verify()`; no claim is made about every authentication path.
+- **Directory listing** — Apache `.htaccess` includes `Options -Indexes`; runtime enforcement has not been tested.
+
+These are **source-observed mechanisms, not a security certification**. No comprehensive security audit or penetration test has been performed.
 
 ---
 
@@ -134,9 +138,13 @@ define('BASE_URL', 'http://localhost/hirehub'); // match your XAMPP URL
 ### Step 4 – Run
 Open browser → `http://localhost/hirehub/`
 
+**Troubleshooting:** If links or redirects fail, check that the folder name, `BASE_URL` in `config/config.php`, and `RewriteBase /hirehub/` in `.htaccess` agree. If database access fails, confirm the imported `hirehub` database and local MySQL credentials. Do not rename these identifiers in the README alone.
+
 ---
 
 ## 🔑 Demo Login Credentials
+
+> **Local development only:** The following seeded example accounts use publicly documented passwords. Never reuse these credentials on a publicly accessible deployment; replace or disable demonstration accounts before deployment.
 
 | Role | Email | Password |
 |---|---|---|
